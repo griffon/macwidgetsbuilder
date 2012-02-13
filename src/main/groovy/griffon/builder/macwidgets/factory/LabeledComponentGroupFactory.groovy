@@ -19,7 +19,6 @@ package griffon.builder.macwidgets.factory
 import javax.swing.JComponent
 import com.explodingpixels.macwidgets.LabeledComponentGroup
 
-import groovy.swing.SwingBuilder
 import groovy.swing.factory.LayoutFactory
 
 /**
@@ -28,7 +27,7 @@ import groovy.swing.factory.LayoutFactory
 class LabeledComponentGroupFactory extends AbstractFactory {
    public Object newInstance( FactoryBuilderSupport builder, Object name, Object value, Map attributes )
             throws InstantiationException, IllegalAccessException {
-      builder.context.widgetId = attributes.remove(builder.getAt(SwingBuilder.DELEGATE_PROPERTY_OBJECT_ID) ?: SwingBuilder.DEFAULT_DELEGATE_PROPERTY_OBJECT_ID)
+      builder.context.widgetId = attributes.remove('id')
       builder.context.constraints = attributes[LayoutFactory.DELEGATE_PROPERTY_CONSTRAINT] ?: attributes[LayoutFactory.DEFAULT_DELEGATE_PROPERTY_CONSTRAINT]
 
       if( value == null ) {

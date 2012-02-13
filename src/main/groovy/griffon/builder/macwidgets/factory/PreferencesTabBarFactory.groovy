@@ -20,15 +20,13 @@ import com.explodingpixels.macwidgets.MacWidgetFactory
 import com.explodingpixels.macwidgets.PreferencesTabBar
 import griffon.builder.macwidgets.impl.PreferencesTab
 
-import groovy.swing.SwingBuilder
-
 /**
  * @author Andres Almiray <aalmiray@users.sourceforge.com>
  */
 class PreferencesTabBarFactory extends AbstractFactory {
    public Object newInstance( FactoryBuilderSupport builder, Object name, Object value, Map attributes )
             throws InstantiationException, IllegalAccessException {
-      builder.context.widgetId = attributes.remove(builder.getAt(SwingBuilder.DELEGATE_PROPERTY_OBJECT_ID) ?: SwingBuilder.DEFAULT_DELEGATE_PROPERTY_OBJECT_ID)
+      builder.context.widgetId = attributes.remove('id')
 
       if( FactoryBuilderSupport.checkValueIsTypeNotString(value, name, PreferencesTabBar) ) {
          builder.context.tabBar = value

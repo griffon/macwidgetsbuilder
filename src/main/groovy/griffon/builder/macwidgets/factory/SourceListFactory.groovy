@@ -27,7 +27,6 @@ import com.explodingpixels.macwidgets.SourceListControlBar
 import com.explodingpixels.macwidgets.SourceListContextMenuProvider
 
 import javax.swing.JComponent
-import groovy.swing.SwingBuilder
 import groovy.swing.factory.LayoutFactory
 import org.codehaus.groovy.runtime.InvokerHelper
 
@@ -37,7 +36,7 @@ import org.codehaus.groovy.runtime.InvokerHelper
 class SourceListFactory extends AbstractFactory {
    public Object newInstance( FactoryBuilderSupport builder, Object name, Object value, Map attributes )
             throws InstantiationException, IllegalAccessException {
-      builder.context.widgetId = attributes.remove(builder.getAt(SwingBuilder.DELEGATE_PROPERTY_OBJECT_ID) ?: SwingBuilder.DEFAULT_DELEGATE_PROPERTY_OBJECT_ID)
+      builder.context.widgetId = attributes.remove('id')
       builder.context.constraints = attributes[LayoutFactory.DELEGATE_PROPERTY_CONSTRAINT] ?: attributes[LayoutFactory.DEFAULT_DELEGATE_PROPERTY_CONSTRAINT]
 
       if( FactoryBuilderSupport.checkValueIsTypeNotString(value, name, SourceList) ) {
@@ -98,7 +97,7 @@ class SourceListFactory extends AbstractFactory {
 class SourceListSplitPaneFactory extends AbstractFactory {
    public Object newInstance( FactoryBuilderSupport builder, Object name, Object value, Map attributes )
             throws InstantiationException, IllegalAccessException {
-      builder.context.widgetId = attributes.remove(builder.getAt(SwingBuilder.DELEGATE_PROPERTY_OBJECT_ID) ?: SwingBuilder.DEFAULT_DELEGATE_PROPERTY_OBJECT_ID)
+      builder.context.widgetId = attributes.remove('id')
       builder.context.constraints = attributes[LayoutFactory.DELEGATE_PROPERTY_CONSTRAINT] ?: attributes[LayoutFactory.DEFAULT_DELEGATE_PROPERTY_CONSTRAINT]
 
       return [:]
