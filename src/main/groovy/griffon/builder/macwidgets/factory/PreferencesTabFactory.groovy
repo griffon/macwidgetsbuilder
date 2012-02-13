@@ -20,7 +20,6 @@ import java.awt.event.ActionListener
 import javax.swing.Icon
 import javax.swing.ImageIcon
 import com.explodingpixels.macwidgets.PreferencesTabBar
-import com.explodingpixels.macwidgets.MacPreferencesTabBar
 import griffon.builder.macwidgets.impl.PreferencesTab
 
 /**
@@ -29,8 +28,7 @@ import griffon.builder.macwidgets.impl.PreferencesTab
 class PreferencesTabFactory extends AbstractFactory {
    public Object newInstance( FactoryBuilderSupport builder, Object name, Object value, Map attributes )
             throws InstantiationException, IllegalAccessException {
-      if( builder.context.parentFactory && ( !(builder.context.parentFactory instanceof PreferencesTabBarFactory) &&
-          !(builder.context.parentFactory instanceof MacPreferencesTabBarFactory) ) ) {
+      if( builder.context.parentFactory && !(builder.context.parentFactory instanceof PreferencesTabBarFactory) ) {
          throw new RuntimeException("$name can only be nested inside preferencesTabBar or macPreferencesTabBar")
       }
       if( FactoryBuilderSupport.checkValueIsTypeNotString(value, name, PreferencesTab) ) {

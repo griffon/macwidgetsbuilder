@@ -66,7 +66,6 @@ public class MacWidgetsBuilder extends SwingBuilder {
       registerFactory("imageButton", new ImageButtonFactory())
       registerFactory("itunesTable", new ITunesTableFactory())
       registerFactory("labeledComponentGroup", new LabeledComponentGroupFactory())
-//       registerFactory("macPreferencesTabBar", new MacPreferencesTabBarFactory())
       registerFactory("macGradientButton", new MacGradientButtonFactory())
       registerFactory("macGradientPopdownButton", new MacGradientPopdownButtonFactory())
       registerFactory("preferencesTab", new PreferencesTabFactory())
